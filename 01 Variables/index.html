@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html ng-app="expensesApp">
+<head>
+	<meta charset="utf-8">
+	<title>Incrementar al hacer click</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+	<script src="app.js"></script>
+</head>
+<body ng-controller="ExpensesViewController">
+	<p>{{description}}</p>
+
+	{{expense.description}} - {{expense.amount}}
+
+	<button ng-click="increaseAmount()">Increase Amount</button>
+</body>
+</html>
