@@ -12,5 +12,16 @@
 	{{expense.description}} - {{expense.amount}}
 
 	<button ng-click="increaseAmount()">Increase Amount</button>
+
+	<div style="margin-top: 50px;">
+		<input type="text" ng-model="expense.description" "name=""/>
+	</div>
+	<div>
+		<input type="number" ng-model="expense.amount"/>
+	</div>
+	<div>
+		<textarea style="height: 120px; width: 240px" ng-model="description"/>
+	</div>
+
 </body>
 </html>

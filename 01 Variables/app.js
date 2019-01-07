@@ -12,8 +12,8 @@ app.controller('ExpensesViewController', ['$scope', function($scope){
 		amount: 10
 	};
 
-	$scope.description = 'Ejemplo para ver como al modificar el modelo se modifica también en la vista de manera automática.';
-
+	$scope.description = 'Ejemplo con enlazado bidireccional, puede notarse como se actualizan en el momento los relacionados entre si';
+	
 	$scope.increaseAmount = function(){
 		$scope.expense.amount++;
 	}
