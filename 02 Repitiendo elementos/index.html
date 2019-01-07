@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="expensesApp">
+<head>
+	<meta charset="utf-8">
+	<title>Incrementar al hacer click</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+	<script src="app.js"></script>
+</head>
+<body ng-controller="ExpensesViewController">
+
+	<h1>{{title}}</h1>
+
+	<ul>
+		<li ng-repeat="item in items">{{item.name}} - ingredients: 
+			<span ng-repeat="ingredient in item.ingredients" style="color:blue;">{{ingredient}}</span></li>
+	</ul>
+
+</body>
+</html>
