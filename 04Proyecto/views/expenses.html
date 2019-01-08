@@ -1,0 +1,15 @@
+<div class="container" style="margin-top: 80px" ng-controller="ExpensesViewController">
+	<div class="row">
+		<div class="col-xs-12">
+			<ul class="list-group">
+					<!--  Para cada expense (esto puede llamarse x, a lo que sea) en expenses (nombre del arreglo) -->
+				<li>
+					<a class="btn btn-success" href="./#!/expenses/new">New Expense</a>
+				</li>
+				<li ng-repeat="expense in expenses" class="list-group-item text-center">
+					<span class="pull-left">{{expense.amount | currency}}</span>{{expense.description | capitalize}}
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
