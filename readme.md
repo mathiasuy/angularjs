@@ -22,7 +22,7 @@ En la vista, se agrega a las variables de esta forma:
 {{numeroDecimal}} --> se vería así: 11,1899
 ```
 
-Para ver solo dos decimales:
+Para ver solo dos decimales se aplica el filtro *number:2*:
 
 ```
 {{numeroDecimal | number:2}} --> se vería así: 11,18
