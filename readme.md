@@ -13,6 +13,8 @@
  - "*item* in *items*" donde *items* es el nombre de la variable en el ambito el cual corresponde a una coleccion e *item* cada item de ese array.
  - "*expense* in *expenses*" Para cada expense (esto puede llamarse x, a lo que sea) en expenses (nombre del arreglo) .
 
+ * **ng-model** Para asociar un campo a su relativo en el modelo
+
 
 ### FILTROS:
 
@@ -37,3 +39,6 @@ Para poner todo en mayúscula:
 
 [Más info](https://docs.angular.org/api/ng/filter)
 
+Bootstrap:
+
+btn-block: para estirar el botón

@@ -14,12 +14,12 @@ app.config(function($routeProvider){
 
 		.when('/expenses/new',{
 			templateUrl	: 'views/expenseForm.html',
-			controller 	: 'ExpensesViewController'
+			controller 	: 'ExpenseViewController'
 		})
 
 		.when('/expenses/edit/:id', {
 			templateUrl	: 'views/expenseForm.html',
-			controller 	: 'ExpensesViewController'
+			controller 	: 'ExpenseViewController'
 		})
 
 		.otherwise({
@@ -38,24 +38,36 @@ app.factory('Expenses', function(){
 		{description: 'bills', amount: 14, date: '2014-10-04'},
 		{description: 'Tomato', amount: 15, date: '2014-10-06'},
 	];
+
+	service.save = function(entry){
+		service.entries.push(entry);
+	}
+
 	return  service;
 });
 
-app.controller('HomeViewController', ['$scope', function($scope){
-	$scope.appTitle = 'Simple Expenses Tracker';
+app.controller('HomeViewController',  ['$scope', 'Expenses', function($scope, Expenses){
+	
 }])
 
+
+//Listado de todos los elementos
 app.controller('ExpensesViewController',  ['$scope', 'Expenses', function($scope, Expenses){
 	$scope.expenses = Expenses.entries;
 }])
 
-app.controller('ExpenseViewController', ['$scope', function($scope){
-	$scope.someText = "The world is round" ;
-}])
+//Crear o editar un elemento
+app.controller('ExpenseViewController', ['$scope', '$routeParams', '$location', 'Expenses', function($scope, $routeParams, $location, Expenses){
+	//$scope.someText = "The world is round "  + $routeParams.id + " The first entrie is " + Expenses.entries[0].description;
+	if (!$routeParams.id){
+		$scope.expense = {id : 7, description: 'algo', amount: 10, date: new Date()};
+	}
 
-app.controller('ExpenseViewController', ['$scope', '$routeParams', 'Expenses', function($scope, $routeParams, Expenses){
+	$scope.save = function() {
+		Expenses.save($scope.expense);// dejamos que el servicio se encarge de guardarlo en el modelo
+		$location.path('/');
+	}
 
-	$scope.someText = "The world is round "  + $routeParams.id + " The first entrie is " + Expenses.entries[0].description;
 }])
 
 app.filter('capitalize', function() {
