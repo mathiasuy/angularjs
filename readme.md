@@ -42,3 +42,9 @@ Para poner todo en mayúscula:
 Bootstrap:
 
 btn-block: para estirar el botón
+
+Para ejecutar en el DOM:
+angular.element(document.body).injector().get('Expenses').getById(3)
+
+
+expenseForm.$valid %% save() para validar y guardar

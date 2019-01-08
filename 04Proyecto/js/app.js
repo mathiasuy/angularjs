@@ -46,7 +46,13 @@ app.factory('Expenses', function(){
 
 	//Para guardar
 	service.save = function(entry){
-		service.entries.push(entry);
+		var toUpdate = service.getById(entry.id);
+		if(toUpdate){
+			_.extend(toUpdate, entry); //copia los valores de un objeto a otro
+		}else{
+			entry.id = service.getNewId();
+			service.entries.push(entry);
+		}
 	}
 
 	//Para obtener un nuevo id:
@@ -63,7 +69,19 @@ app.factory('Expenses', function(){
 			return service.newId;
 		}
 	}
-	
+
+	service.remove = function(entry) {
+		service.entries = _.reject(service.entries, function(element){ // filtro, quedaran en el arreglo retonrado, solo los queno cumplen con...
+			return entry.id == element.id;
+		})
+	}
+
+	//angular.element(document.body).injector().get('Expenses').getById(3)
+	service.getById = function(id){
+		//return 8;
+		return _.find(service.entries, function(entry){return  entry.id == id});
+	};
+
 	return  service;
 });
 
@@ -75,14 +93,27 @@ app.controller('HomeViewController',  ['$scope', 'Expenses', function($scope, Ex
 //Listado de todos los elementos
 app.controller('ExpensesViewController',  ['$scope', 'Expenses', function($scope, Expenses){
 	$scope.expenses = Expenses.entries;
+	$scope.remove = function(expense){
+		Expenses.remove(expense);
+	};
+
+	$scope.$watch(
+		function(){// En esta funcion retornamos el objeto que queremos espiar
+			return Expenses.entries; 
+		},
+		function(entries){// en esta funcion indicamos qué pasa cuando eso cambia (no tiene por que llamarse entries)
+			$scope.expenses = entries;
+		}
+	);
 }])
 
 //Crear o editar un elemento
 app.controller('ExpenseViewController', ['$scope', '$routeParams', '$location', 'Expenses', function($scope, $routeParams, $location, Expenses){
 	//$scope.someText = "The world is round "  + $routeParams.id + " The first entrie is " + Expenses.entries[0].description;
 	if (!$routeParams.id){
-		var newId = Expenses.getNewId();
-		$scope.expense = {id : newId, description: 'algo ' + newId, amount: 10, date: new Date()};
+		$scope.expense = {date: new Date()};
+	}else{
+		$scope.expense = _.clone(Expenses.getById($routeParams.id));
 	}
 
 	$scope.save = function() {
@@ -92,8 +123,10 @@ app.controller('ExpenseViewController', ['$scope', '$routeParams', '$location', 
 
 }])
 
+
 app.filter('capitalize', function() {
     return function(input) {
       return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
     }
 })
+
