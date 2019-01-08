@@ -11,8 +11,8 @@ Notas
 *Enlazado bidireccional* Modificamos el modelo o la vista y se actualiza automaticamente lo que la vista muestra de ese modelo
 
 
-FILTROS:
-++++++++
+_FILTROS:_
+
 
 En la vista, se agrega a las variables de esta forma:
 
