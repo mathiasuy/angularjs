@@ -1,11 +1,11 @@
-#Notas
+# Notas
 
 *Enlazado unidireccional* Modificamos el modelo y se actualiza automaticamente lo que la vista muestra de ese modelo
 
 *Enlazado bidireccional* Modificamos el modelo o la vista y se actualiza automaticamente lo que la vista muestra de ese modelo
 
 
-###ng-
+### ng-
 
 * **ng-click** para ejecutar métodos.
 * **ng-controller** para asociar a un controlador
@@ -13,7 +13,7 @@
 * "*expense* in *expenses*" Para cada expense (esto puede llamarse x, a lo que sea) en expenses (nombre del arreglo) .
 
 
-###FILTROS:
+### FILTROS:
 
 
 En la vista, se agrega a las variables de esta forma:
