@@ -18,15 +18,21 @@
 
 En la vista, se agrega a las variables de esta forma:
 
+```
 {{numeroDecimal}} --> se vería así: 11,1899
+```
 
 Para ver solo dos decimales:
 
+```
 {{numeroDecimal | number:2}} --> se vería así: 11,18
+```
 
 Para poner todo en mayúscula:
 
+```
 {{texto | uppercase}}
+```
 
-Más info: docs.angular.org/api/ng/filter
+[Más info](docs.angular.org/api/ng/filter)
 
