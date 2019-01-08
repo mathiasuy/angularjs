@@ -9,8 +9,9 @@
 
 * **ng-click** para ejecutar métodos.
 * **ng-controller** para asociar a un controlador
-* **ng-repeat** es como un foreach, por dentro se pone por ejemplo "*item* in *items*" donde *items* es el nombre de la variable en el ambito el cual corresponde a una coleccion e *item* cada item de ese array.
-* "*expense* in *expenses*" Para cada expense (esto puede llamarse x, a lo que sea) en expenses (nombre del arreglo) .
+* **ng-repeat** es como un foreach, por dentro se pone por ejemplo 
+ - "*item* in *items*" donde *items* es el nombre de la variable en el ambito el cual corresponde a una coleccion e *item* cada item de ese array.
+ - "*expense* in *expenses*" Para cada expense (esto puede llamarse x, a lo que sea) en expenses (nombre del arreglo) .
 
 
 ### FILTROS:
@@ -34,5 +35,5 @@ Para poner todo en mayúscula:
 {{texto | uppercase}}
 ```
 
-[Más info](docs.angular.org/api/ng/filter)
+[Más info](https://docs.angular.org/api/ng/filter)
 
