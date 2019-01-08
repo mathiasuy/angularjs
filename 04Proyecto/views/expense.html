@@ -1,0 +1,11 @@
+<span class="pull-left">{{expense.amount | currency}}</span>
+
+{{expense.id}}: {{expense.description | capitalize}}
+
+<!-- recordar que estamos en el objeto expense, por lo que podemos pasarlo por parametro -->
+<a ng-click="remove(expense)" class="btn btn-danger btn-s pull-right btn-separation-left" >
+	<span class="glyphicon glyphicon-trash"></span>
+</a>
+<a href="#!/expenses/edit/{{expense.id}}" class="btn btn-primary btn-s pull-right">
+	<span class="glyphicon glyphicon-pencil"></span>
+</a>		
