@@ -11,7 +11,7 @@
 					
 					<span class="pull-left">{{expense.amount | currency}}</span>
 
-					{{expense.description | capitalize}}
+					{{expense.id}}: {{expense.description | capitalize}}
 
 					<a class="btn btn-danger btn-s pull-right btn-separation-left" href="./#!/expenses/edit/{{expense.id}}">
 						<span class="glyphicon glyphicon-trash"></span>
