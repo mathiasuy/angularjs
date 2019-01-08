@@ -130,3 +130,10 @@ app.filter('capitalize', function() {
     }
 })
 
+app.directive('mbExpense',function(){
+	return {
+		restrict : 'E', //Elemento HTML
+		//template: '<div>{{expense.description}}</div>'
+		templateUrl: 'views/expense.html'
+	}
+});

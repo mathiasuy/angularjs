@@ -8,18 +8,7 @@
 			<ul class="list-group">
 					<!--  Para cada expense (esto puede llamarse x, a lo que sea) en expenses (nombre del arreglo) -->
 				<li ng-repeat="expense in expenses" class="list-group-item text-center">
-					
-					<span class="pull-left">{{expense.amount | currency}}</span>
-
-					{{expense.id}}: {{expense.description | capitalize}}
-
-					<!-- recordar que estamos en el objeto expense, por lo que podemos pasarlo por parametro -->
-					<a ng-click="remove(expense)" class="btn btn-danger btn-s pull-right btn-separation-left" >
-						<span class="glyphicon glyphicon-trash"></span>
-					</a>
-					<a href="#!/expenses/edit/{{expense.id}}" class="btn btn-primary btn-s pull-right">
-						<span class="glyphicon glyphicon-pencil"></span>
-					</a>					
+					<mb-expense></mb-expense>			
 				</li>
 			</ul>
 			<div>
